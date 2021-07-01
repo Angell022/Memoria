@@ -33,12 +33,10 @@ function generarTablero() {
                     </div>
                 </div>        
                 `);
-                //duplica la imagen
     if (i % 2 == 1) {
       iconos.splice(0, 1);
     }
   }
-  //manera aleatoria
   tarjetas.sort(() => Math.random() - 0.5);
   tablero.innerHTML = tarjetas.join(" ");
 }
@@ -56,25 +54,22 @@ function seleccionarTarjeta(i) {
 }
 
 function deseleccionar(selecciones) {
-    var sum = '¡Correcto!';
-    var sum1 = '¡Incorrecto!';
+    var correcto = '¡Correcto!';
+    var incorrecto = '¡Incorrecto!';
   setTimeout(() => {
     let trasera1 = document.getElementById("trasera" + selecciones[0]);
     let trasera2 = document.getElementById("trasera" + selecciones[1]);
-    //las tarjetas no coinciden
+  
     if (trasera1.innerHTML != trasera2.innerHTML) {
       let tarjeta1 = document.getElementById("tarjeta" + selecciones[0]);
       let tarjeta2 = document.getElementById("tarjeta" + selecciones[1]);
-      document.getElementById('cont1').innerHTML = sum1;
+      document.getElementById('cont1').innerHTML = incorrecto;
       ocultar();
-//voltemos las tarjetas
+
       tarjeta1.style.transform = "rotateY(0deg)";
       tarjeta2.style.transform = "rotateY(0deg)";
     } else {
-      //las tarjetas son iguales, plum cambia el color
-     /* trasera1.style.background = "plum";
-      trasera2.style.background = "plum";*/
-      document.getElementById('cont1').innerHTML = sum;
+      document.getElementById('cont1').innerHTML = correcto;
                 ocultar();
     }
   }, 1000);
@@ -84,6 +79,6 @@ function mostrar() {
   document.getElementById('cont1').style.visibility='visible';
   }
   function ocultar() {
-  setTimeout("document.getElementById('cont1').style.visibility='hidden';",2000);
+  setTimeout("document.getElementById('cont1').style.visibility='hidden';",1500);
   mostrar();
   }
