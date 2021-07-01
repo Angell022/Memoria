@@ -1,5 +1,9 @@
 let iconos = [];
 let selecciones = [];
+let $contador = $("#contador");
+let turno = 0;
+let conteoJugadas = 0;
+let paresDescubiertos = 0;
 
 generarTablero();
 
@@ -15,6 +19,7 @@ function cargarIconos() {
 }
 
 function generarTablero() {
+  variar();
   cargarIconos();
   selecciones = [];
   let tablero = document.getElementById("tablero");
@@ -65,12 +70,18 @@ function deseleccionar(selecciones) {
       let tarjeta2 = document.getElementById("tarjeta" + selecciones[1]);
       document.getElementById('cont1').innerHTML = incorrecto;
       ocultar();
+      turno++
+            conteoJugadas++
+            $contador = $contador.text('# Jugadas: ' + conteoJugadas);
 
       tarjeta1.style.transform = "rotateY(0deg)";
       tarjeta2.style.transform = "rotateY(0deg)";
     } else {
       document.getElementById('cont1').innerHTML = correcto;
                 ocultar();
+                turno++
+            conteoJugadas++
+            $contador = $contador.text('# Jugadas: ' + conteoJugadas);
     }
   }, 1000);
 }
@@ -82,3 +93,39 @@ function mostrar() {
   setTimeout("document.getElementById('cont1').style.visibility='hidden';",1500);
   mostrar();
   }
+
+  //esta función inicia el reloj al cargar la página
+function carga(){
+  contador_s =0;
+  contador_m =0;
+      s = document.getElementById("segundos");
+      m = document.getElementById("minutos");
+          cronometro = setInterval(
+                  function(){
+                  if(contador_s==60)
+                          {
+                              contador_s=0;
+                              contador_m++;
+                              m.innerHTML = contador_m;
+                              if(contador_m==60)
+                                  {
+                                  contador_m=0;
+                                  }
+                          }
+                  s.innerHTML = contador_s;
+                      contador_s++;
+                  }
+              ,1000);
+  }
+
+//Esta función detiene el cronómetro
+function detenerse(){
+     clearInterval(cronometro);
+}
+
+function variar(){
+  turno = 0;
+  paresDescubiertos = 0;
+  $contador = $contador.text('# Jugadas: ');
+  conteoJugadas = 0;
+}

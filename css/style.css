@@ -105,7 +105,7 @@ button {
   background: #b6dfed;
   border-bottom: 2px solid #197199;
   border-top: 2px solid #197199;
-  color: #197199;
+  color: rgb(102, 1, 1);
   display: block;
   margin-top: 2em;
   width: 95%;
