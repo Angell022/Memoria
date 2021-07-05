@@ -1,9 +1,9 @@
 let iconos = [];
 let selecciones = [];
 let $contador = $("#contador");
-let turno = 0;
 let conteoJugadas = 0;
 let paresDescubiertos = 0;
+let dificultad = 6;
 
 generarTablero();
 
@@ -59,73 +59,82 @@ function seleccionarTarjeta(i) {
 }
 
 function deseleccionar(selecciones) {
-    var correcto = '¡Correcto!';
-    var incorrecto = '¡Incorrecto!';
+  var correcto = "¡Correcto!";
+  var incorrecto = "¡Incorrecto!";
   setTimeout(() => {
     let trasera1 = document.getElementById("trasera" + selecciones[0]);
     let trasera2 = document.getElementById("trasera" + selecciones[1]);
-  
+
     if (trasera1.innerHTML != trasera2.innerHTML) {
       let tarjeta1 = document.getElementById("tarjeta" + selecciones[0]);
       let tarjeta2 = document.getElementById("tarjeta" + selecciones[1]);
-      document.getElementById('cont1').innerHTML = incorrecto;
+      document.getElementById("cont1").innerHTML = incorrecto;
       ocultar();
-      turno++
-            conteoJugadas++
-            $contador = $contador.text('# Jugadas: ' + conteoJugadas);
+      conteoJugadas++;
+      $contador = $contador.text("# Jugadas: " + conteoJugadas);
 
       tarjeta1.style.transform = "rotateY(0deg)";
       tarjeta2.style.transform = "rotateY(0deg)";
     } else {
-      document.getElementById('cont1').innerHTML = correcto;
-                ocultar();
-                turno++
-            conteoJugadas++
-            $contador = $contador.text('# Jugadas: ' + conteoJugadas);
+      document.getElementById("cont1").innerHTML = correcto;
+      ocultar();
+      conteoJugadas++;
+      $contador = $contador.text("# Jugadas: " + conteoJugadas);
+      paresDescubiertos++;
+      revisarQueGano();
     }
   }, 1000);
 }
 
 function mostrar() {
-  document.getElementById('cont1').style.visibility='visible';
-  }
-  function ocultar() {
-  setTimeout("document.getElementById('cont1').style.visibility='hidden';",1500);
+  document.getElementById("cont1").style.visibility = "visible";
+}
+function ocultar() {
+  setTimeout(
+    "document.getElementById('cont1').style.visibility='hidden';",
+    1500
+  );
   mostrar();
-  }
-
-  //esta función inicia el reloj al cargar la página
-function carga(){
-  contador_s =0;
-  contador_m =0;
-      s = document.getElementById("segundos");
-      m = document.getElementById("minutos");
-          cronometro = setInterval(
-                  function(){
-                  if(contador_s==60)
-                          {
-                              contador_s=0;
-                              contador_m++;
-                              m.innerHTML = contador_m;
-                              if(contador_m==60)
-                                  {
-                                  contador_m=0;
-                                  }
-                          }
-                  s.innerHTML = contador_s;
-                      contador_s++;
-                  }
-              ,1000);
-  }
-
-//Esta función detiene el cronómetro
-function detenerse(){
-     clearInterval(cronometro);
 }
 
-function variar(){
-  turno = 0;
+function cronometro() {
+  contador_s = 0;
+  contador_m = 0;
+  s = document.getElementById("segundos");
+  m = document.getElementById("minutos");
+  crono = setInterval(function () {
+    if (contador_s == 60) {
+      contador_s = 0;
+      contador_m++;
+      m.innerHTML = contador_m;
+      if (contador_m == 60) {
+        contador_m = 0;
+      }
+    }
+    s.innerHTML = contador_s;
+    contador_s++;
+  }, 1000);
+}
+
+function detenerse() {
+  clearInterval(crono);
+}
+
+function variar() {
   paresDescubiertos = 0;
-  $contador = $contador.text('# Jugadas: ');
+  $contador = $contador.text("# Jugadas: ");
   conteoJugadas = 0;
+  cronometro();
+}
+
+function revisarQueGano() {
+  if (paresDescubiertos === dificultad) {
+    detenerse();
+    msjWin();
+  }
+
+  function msjWin() {
+    var win = "¡Felicidades! encontraste todos los pares";
+    document.getElementById("cont1").innerHTML = win;
+  }
 }

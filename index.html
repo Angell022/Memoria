@@ -10,14 +10,15 @@
       name="viewport"
       content="width=device-width, user-scalable=yes, initial-scale=1.0"
     />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
   </head>
 
   <body>
-
-    <div id="tablero">
-    </div>
-    <br>
+    <div id="tablero"></div>
+    <br />
     <div class="nuevo-juego" onclick="generarTablero()">
       <div>
         <button id="comenzar">¡Comenzar!</button>
@@ -25,10 +26,10 @@
       </div>
 
       <div class="retro">
-        <p id="cont1"></p>
-        <dl>
-          <dt id="cronometro"><span id="minutos">0</span>:<span id="segundos">0</span></dt>
-      </dl>
+        <p id="cont1"></p><br />
+        <div id="screem">
+          <p><span id="minutos">0</span>:<span id="segundos">0</span></p>
+        </div>
       </div>
     </div>
 
