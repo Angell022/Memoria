@@ -98,21 +98,18 @@ function ocultar() {
 }
 
 function cronometro() {
-  contador_s = 0;
+  var gOver = "Se Termino el Tiempo";
+  contador_s = 60;
   contador_m = 0;
   s = document.getElementById("segundos");
   m = document.getElementById("minutos");
   crono = setInterval(function () {
-    if (contador_s == 60) {
-      contador_s = 0;
-      contador_m++;
-      m.innerHTML = contador_m;
-      if (contador_m == 60) {
-        contador_m = 0;
-      }
+    if (contador_s == 0) {
+      detenerse();
+      alert("Se Termino el Tiempo");
     }
     s.innerHTML = contador_s;
-    contador_s++;
+    contador_s--;
   }, 1000);
 }
 
