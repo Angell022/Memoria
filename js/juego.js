@@ -9,12 +9,12 @@ generarTablero();
 
 function cargarIconos() {
   iconos = [
-    '<img src="img/5.jpg" alt="imagen1">',
-    '<img src="img/6.jpg" alt="imagen2">',
-    '<img src="img/4.jpg" alt="imagen3">',
-    '<img src="img/1.jpg" alt="imagen4">',
-    '<img src="img/2.jpg" alt="imagen5">',
-    '<img src="img/3.jpg" alt="imagen6">',
+    '<img src="img/1.jpg" alt="imagen1">',
+    '<img src="img/2.jpg" alt="imagen2">',
+    '<img src="img/3.jpg" alt="imagen3">',
+    '<img src="img/4.jpg" alt="imagen4">',
+    '<img src="img/5.jpg" alt="imagen5">',
+    '<img src="img/6.jpg" alt="imagen6">',
   ];
 }
 
@@ -99,14 +99,14 @@ function ocultar() {
 
 function cronometro() {
   var gOver = "Se Termino el Tiempo";
-  contador_s = 60;
+  contador_s = 30;
   contador_m = 0;
   s = document.getElementById("segundos");
   m = document.getElementById("minutos");
   crono = setInterval(function () {
     if (contador_s == 0) {
-      detenerse();
       alert("Se Termino el Tiempo");
+      detenerse();
     }
     s.innerHTML = contador_s;
     contador_s--;
@@ -131,7 +131,7 @@ function revisarQueGano() {
   }
 
   function msjWin() {
-    var win = "¡Felicidades! encontraste todos los pares";
+    var win = "¡Encontraste todos los pares!";
     document.getElementById("cont1").innerHTML = win;
   }
 }

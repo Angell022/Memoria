@@ -1,5 +1,4 @@
 * {
-  font-family: "Oswald", sans-serif;
   font-size: 30px;
   padding: 0;
   margin: 0;
@@ -8,6 +7,10 @@
 :root {
   --w: calc(80vw / 5);
   --h: calc(70vh / 2);
+  --w1: calc(80vw / 4);
+  --h1: calc(60vh / 3);
+  --w2: calc(80vw / 3);
+  --h2: calc(50vh / 4);
 }
 
 * {
@@ -43,7 +46,6 @@ div {
   cursor: pointer;
   border-radius: 20px;
   width: var(--w);
-  min-width: 100px;
   height: var(--h);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
@@ -51,7 +53,7 @@ div {
 .tarjeta {
   position: relative;
   transform-style: preserve-3d;
-  animation: iniciar 3s;
+  animation: iniciar 2s;
   border-radius: 20px;
 }
 img {
@@ -84,7 +86,7 @@ img {
   padding: 1%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0.3em;
+  grid-gap: 0.3em;
 }
 .nuevo-juego div {
   grid-column: span 1;
@@ -111,23 +113,17 @@ button {
   background: #b6dfed;
   border-bottom: 2px solid #197199;
   border-top: 2px solid #197199;
-  color: rgb(102, 1, 1);
-  display: block;
+  color: rgb(56, 10, 10);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-top: 2em;
   width: 95%;
-  height: 30px;
+  height: auto;
 }
 .retro p {
   font-size: 20px;
-  display: block;
   margin: 0.5em 0 0.5em 1em;
-}
-#screen {
-  font-weight: 300;
-  font-size: 40px;
-  width: 300px;
-  height: 50px;
-  letter-spacing: 3px;
 }
 
 /*muestra las imagenes*/
@@ -139,5 +135,45 @@ button {
   0%,
   100% {
     transform: rotateY(0deg);
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .retro{
+    width: 90%;
+  }
+  .nuevo-juego {
+    grid-gap: 0.1em;
+  }
+  .area-tarjeta,
+.tarjeta,
+.cara {
+  width: var(--w2);
+  height: var(--h2);
+}
+.retro p {
+  font-size: 14px;
+}
+img{
+  height: 95%;
+}
+}
+
+@media only screen and (max-width: 1130px) {
+  .area-tarjeta,
+  .tarjeta,
+  .cara {
+    width: var(--w1);
+    height: var(--h1);
+  }
+  .nuevo-juego {
+    width: 90%;
+    grid-gap: 0.2em;
+  }
+  .retro{
+    width: 90%;
+  }
+  .retro p {
+    font-size: 18px;
   }
 }
