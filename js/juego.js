@@ -9,12 +9,12 @@ generarTablero();
 
 function cargarIconos() {
   iconos = [
-    '<img src="img/1.jpg" alt="imagen1">',
-    '<img src="img/2.jpg" alt="imagen2">',
-    '<img src="img/3.jpg" alt="imagen3">',
-    '<img src="img/4.jpg" alt="imagen4">',
-    '<img src="img/5.jpg" alt="imagen5">',
-    '<img src="img/6.jpg" alt="imagen6">',
+    '<img src="img/1.webp" alt="imagen1">',
+    '<img src="img/2.webp" alt="imagen2">',
+    '<img src="img/3.webp" alt="imagen3">',
+    '<img src="img/4.webp" alt="imagen4">',
+    '<img src="img/5.webp" alt="imagen5">',
+    '<img src="img/6.webp" alt="imagen6">',
   ];
 }
 
