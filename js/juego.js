@@ -32,7 +32,7 @@ function generarTablero() {
                             ${iconos[0]}
                         </div>
                         <div class="cara superior">
-                            <img src="img/img1.jpg" alt="imagen7">
+                            <img src="img/img1.webp" alt="imagen7">
                             
                         </div>
                     </div>
